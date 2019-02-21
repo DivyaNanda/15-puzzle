@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Puzzler</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+</head>
+
+<body>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script>
+        /* global SystemJS */
+        SystemJS.config({
+            packages: {
+                "ts": {
+                    "main": "lib/plugin.js"
+                },
+                "typescript": {
+                    "main": "lib/typescript.js",
+                    "meta": {
+                        "lib/typescript.js": {
+                            "exports": "ts"
+                        }
+                    }
+                }
+            },
+            map: {
+                "ts": "node_modules/plugin-typescript",
+                "typescript": "node_modules/typescript"
+            },
+            transpiler: 'ts'
+        });
+
+        SystemJS.import('js/index.ts').then(function(m) {
+            m.main();
+        });
+    </script>
+
+    <div class="header">
+        <div class="col-25">
+            <input type="button" class="addbutton" value="+ Add new Board" id="newBoardBtn">
+        </div>
+        <div class="col-50">
+            <div class="board">
+                <label class="label" for="puzzleSize">Board Size</label>
+                <input type="number" id="tilesRow" value="4" min="2"> x
+                <input type="number" id="tilesCol" value="4" min="2">
+            </div>
+            <div class="tiles">
+                <label class="label" for="tilesSize">Tiles Size</label>
+                <input type="number" id="tilesSize" value="100" min="20">
+            </div>
+
+        </div>
+        <div class="col-25">
+            <input type="button" class="rmbutton" value="- Remove Board" id="removeBoardBtn">
+        </div>
+
+    </div>
+
+    <div class="main">
+        <div class="col-25">
+            <ul id="puzzleList">
+            </ul>
+        </div>
+        <div class="col-75">
+            <canvas id="puzzle"></canvas>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

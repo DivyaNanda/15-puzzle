@@ -1,0 +1,28 @@
+{
+  "name": "puzzler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/dist/puzzler.js",
+  "scripts": {
+    "format": "prettier --write \"js/**/*.ts\" --single-quote --trailing-comma es5",
+    "lint": "tslint --force --format verbose \"js/src/**/*.ts\"",
+    "start": "node node_modules/http-server/bin/http-server -o"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "plugin-typescript": "^8.0.0",
+    "systemjs": "^0.20.19"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.0",
+    "http-server": "^0.11.1",
+    "prettier": "^1.5.2",
+    "tslint": "^5.0.0",
+    "tslint-config-prettier": "^1.1.0",
+    "typescript": "^2.3.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
